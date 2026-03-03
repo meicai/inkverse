@@ -34,35 +34,11 @@ export const StatusLabels = {
 // 学前古诗
 const preschool = [
   {
-    id: 1,
-    title: "草",
-    author: "白居易",
-    dynasty: "唐",
-    content: ["离离原上草，", "一岁一枯荣。", "野火烧不尽，", "春风吹又生。"],
-    grade: "PRESCHOOL",
-  },
-  {
-    id: 2,
-    title: "春晓",
-    author: "孟浩然",
-    dynasty: "唐",
-    content: ["春眠不觉晓，", "处处闻啼鸟。", "夜来风雨声，", "花落知多少。"],
-    grade: "PRESCHOOL",
-  },
-  {
     id: 3,
     title: "乐游原",
     author: "李商隐",
     dynasty: "唐",
     content: ["向晚意不适，", "驱车登古原。", "夕阳无限好，", "只是近黄昏。"],
-    grade: "PRESCHOOL",
-  },
-  {
-    id: 4,
-    title: "独坐敬亭山",
-    author: "李白",
-    dynasty: "唐",
-    content: ["众鸟高飞尽，", "孤云独去闲。", "相看两不厌，", "只有敬亭山。"],
     grade: "PRESCHOOL",
   },
   {
@@ -150,14 +126,6 @@ const preschool = [
     grade: "PRESCHOOL",
   },
   {
-    id: 13,
-    title: "绝句二首(其一)",
-    author: "杜甫",
-    dynasty: "唐",
-    content: ["迟日江山丽，", "春风花草香。", "泥融飞燕子，", "沙暖睡鸳鸯。"],
-    grade: "PRESCHOOL",
-  },
-  {
     id: 14,
     title: "寻隐者不遇",
     author: "贾岛",
@@ -235,19 +203,6 @@ const preschool = [
     grade: "PRESCHOOL",
   },
   {
-    id: 23,
-    title: "泊船瓜洲",
-    author: "王安石",
-    dynasty: "宋",
-    content: [
-      "京口瓜洲一水间，",
-      "钟山只隔数重山。",
-      "春风又绿江南岸，",
-      "明月何时照我还。",
-    ],
-    grade: "PRESCHOOL",
-  },
-  {
     id: 24,
     title: "登幽州台歌",
     author: "陈子昂",
@@ -277,19 +232,6 @@ const preschool = [
     grade: "PRESCHOOL",
   },
   {
-    id: 27,
-    title: "惠崇春江晚景",
-    author: "苏轼",
-    dynasty: "宋",
-    content: [
-      "竹外桃花三两枝，",
-      "春江水暖鸭先知。",
-      "蒌蒿满地芦芽短，",
-      "正是河豚欲上时。",
-    ],
-    grade: "PRESCHOOL",
-  },
-  {
     id: 28,
     title: "滁州西涧",
     author: "韦应物",
@@ -299,19 +241,6 @@ const preschool = [
       "上有黄鹂深树鸣。",
       "春潮带雨晚来急，",
       "野渡无人舟自横。",
-    ],
-    grade: "PRESCHOOL",
-  },
-  {
-    id: 29,
-    title: "凉州词",
-    author: "王之涣",
-    dynasty: "唐",
-    content: [
-      "黄河远上白云间，",
-      "一片孤城万仞山。",
-      "羌笛何须怨杨柳，",
-      "春风不度玉门关。",
     ],
     grade: "PRESCHOOL",
   },
@@ -326,14 +255,6 @@ const preschool = [
       "来如春梦几多时？",
       "离似朝云无觅处。",
     ],
-    grade: "PRESCHOOL",
-  },
-  {
-    id: 31,
-    title: "登鹳雀楼",
-    author: "王之涣",
-    dynasty: "唐",
-    content: ["白日依山尽，", "黄河入海流。", "欲穷千里目，", "更上一层楼。"],
     grade: "PRESCHOOL",
   },
   {

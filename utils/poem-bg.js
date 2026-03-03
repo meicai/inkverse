@@ -25,10 +25,7 @@ const BG_IMAGES = {
  */
 const POEM_BG_MAP = {
   // === 学前 ===
-  1: 'grassland',    // 草 - 离离原上草
-  2: 'spring',       // 春晓 - 春眠不觉晓
   3: 'autumn',       // 乐游原 - 夕阳无限好
-  4: 'mountains',    // 独坐敬亭山 - 众鸟高飞尽
   5: 'pastoral',     // 悯农二首 - 春种一粒粟
   6: 'summer',       // 池上 - 小娃撑小艇
   7: 'spring',       // 题都城南庄 - 人面桃花
@@ -37,7 +34,6 @@ const POEM_BG_MAP = {
   10: 'spring',      // 咏柳 - 碧玉妆成一树高
   11: 'autumn',      // 风 - 解落三秋叶
   12: 'mountains',   // 夜宿山寺 - 危楼高百尺
-  13: 'spring',      // 绝句二首 - 泥融飞燕子
   14: 'mountains',   // 寻隐者不遇 - 云深不知处
   15: 'birds',       // 辛夷坞 - 木末芙蓉花
   16: 'moonlight',   // 古别离 - 暂借明月光
@@ -47,15 +43,11 @@ const POEM_BG_MAP = {
   20: 'moonlight',   // 古朗月行 - 小时不识月
   21: 'farewell',    // 劳劳亭 - 送客亭
   22: 'birds',       // 五岁吟花 - 花开满树红
-  23: 'spring',      // 泊船瓜洲 - 春风又绿江南岸
   24: 'mountains',   // 登幽州台歌 - 念天地之悠悠
   25: 'moonlight',   // 中秋夜 - 圆魄上寒空
   26: 'moonlight',   // 月下独酌 - 举杯邀明月
-  27: 'spring',      // 惠崇春江晚景 - 竹外桃花
   28: 'spring',      // 滁州西涧 - 春潮带雨
-  29: 'frontier',    // 凉州词 - 黄河远上白云间
   30: 'birds',       // 花非花 - 花非花雾非雾
-  31: 'mountains',   // 登鹳雀楼 - 白日依山尽
   32: 'study',       // 弟子规 - 弟子规圣人训
 
   // === 一年级 ===

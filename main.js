@@ -7,6 +7,7 @@ import { loadPoemStatuses, savePoemStatus, loadSettings, saveSettings } from './
 import { speak, stopSpeaking, speakPoem, speakEncouragement } from './utils/tts.js';
 import { createAudioManager, PlayMode } from './utils/audio-manager.js';
 import { getPoemBgImage } from './utils/poem-bg.js';
+import { getAnnotation, rubyLine } from './utils/poem-annotations.js';
 
 // ========== 全局状态 ==========
 const state = {
@@ -17,6 +18,12 @@ const state = {
   settings: {},
   detailPoem: null,           // 当前查看的诗词
   speakingLineIndex: null,    // 当前正在朗读的行索引（-1 = 标题/作者）
+  showPinyin: true,           // 是否显示拼音
+  showTranslation: false,     // 是否显示译文
+  reciteMode: false,          // 背诵模式
+  revealedLines: new Set(),   // 已揭示的行号
+  searchQuery: '',            // 搜索关键词
+  favorites: new Set(),       // 收藏的诗 ID
 };
 
 // 音频管理器
@@ -28,6 +35,12 @@ function init() {
   state.poemStatuses = loadPoemStatuses();
   state.settings = loadSettings();
   audioManager.updateConfig(state.settings);
+
+  // 加载收藏列表
+  try {
+    const saved = localStorage.getItem('gushi_favorites');
+    if (saved) state.favorites = new Set(JSON.parse(saved));
+  } catch(e) {}
 
   // 设置视口高度（移动端兼容）
   setAppHeight();
@@ -96,6 +109,15 @@ function getStatusText(status) {
 // ========== 获取筛选后的诗词列表 ==========
 function getFilteredPoems() {
   let poems = allPoems;
+  // 搜索过滤
+  if (state.searchQuery.trim()) {
+    const q = state.searchQuery.trim().toLowerCase();
+    poems = poems.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      p.author.toLowerCase().includes(q) ||
+      p.content.some(line => line.includes(q))
+    );
+  }
   if (state.selectedGrade !== 'ALL') {
     poems = poems.filter(p => p.grade === state.selectedGrade);
   }
@@ -116,6 +138,17 @@ function renderPoemList() {
   const percent = totalCount > 0 ? (masteredCount / totalCount * 100) : 0;
 
   container.innerHTML = `
+    <!-- 搜索栏 -->
+    <div class="search-bar">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <input type="text" class="search-input" id="searchInput"
+             placeholder="搜索诗名、作者…"
+             value="${state.searchQuery}" />
+      ${state.searchQuery ? '<button class="search-clear" id="searchClear">✕</button>' : ''}
+    </div>
+
     <!-- 进度卡片 -->
     <div class="progress-banner">
       <div class="progress-label">已记下古诗</div>
@@ -153,6 +186,9 @@ function renderPoemList() {
           return `
             <div class="poem-card fade-in" data-poem-id="${poem.id}">
               <div class="card-bg" style="background-image: url('${bgUrl}')"></div>
+              <button class="fav-btn ${state.favorites.has(poem.id) ? 'active' : ''}" data-fav-id="${poem.id}">
+                ${state.favorites.has(poem.id) ? '❤' : '♡'}
+              </button>
               ${status === Status.MASTERED ? `
                 <div class="mastered-badge">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -204,10 +240,62 @@ function renderPoemList() {
   });
 
   container.querySelectorAll('.poem-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      // 点击收藏按钮时不开详情
+      if (e.target.closest('.fav-btn')) return;
       const poemId = parseInt(card.dataset.poemId);
       const poem = allPoems.find(p => p.id === poemId);
       if (poem) openDetail(poem);
+    });
+  });
+
+  // 搜索事件
+  const searchInput = container.querySelector('#searchInput');
+  if (searchInput) {
+    let isComposing = false; // 输入法组合状态标志
+    searchInput.addEventListener('compositionstart', () => { isComposing = true; });
+    searchInput.addEventListener('compositionend', (e) => {
+      isComposing = false;
+      // 输入法确认后立即触发搜索
+      state.searchQuery = e.target.value;
+      renderPoemList();
+      const newInput = container.querySelector('#searchInput');
+      if (newInput) {
+        newInput.focus();
+        newInput.setSelectionRange(newInput.value.length, newInput.value.length);
+      }
+    });
+    searchInput.addEventListener('input', (e) => {
+      if (isComposing) return; // 输入法组合中，跳过
+      state.searchQuery = e.target.value;
+      renderPoemList();
+      const newInput = container.querySelector('#searchInput');
+      if (newInput) {
+        newInput.focus();
+        newInput.setSelectionRange(newInput.value.length, newInput.value.length);
+      }
+    });
+  }
+  const searchClear = container.querySelector('#searchClear');
+  if (searchClear) {
+    searchClear.addEventListener('click', () => {
+      state.searchQuery = '';
+      renderPoemList();
+    });
+  }
+
+  // 收藏事件
+  container.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = parseInt(btn.dataset.favId);
+      if (state.favorites.has(id)) {
+        state.favorites.delete(id);
+      } else {
+        state.favorites.add(id);
+      }
+      localStorage.setItem('gushi_favorites', JSON.stringify([...state.favorites]));
+      renderPoemList();
     });
   });
 }
@@ -216,6 +304,8 @@ function renderPoemList() {
 function openDetail(poem) {
   state.detailPoem = poem;
   state.speakingLineIndex = null;
+  state.reciteMode = false;
+  state.revealedLines = new Set();
   const modal = document.getElementById('poemDetailModal');
   renderDetailContent(modal, poem);
   modal.classList.remove('hidden');
@@ -244,11 +334,12 @@ function renderDetailContent(modal, poem) {
   // 根据诗句数量决定字号
   const lineCount = poem.content.length;
   let fontSize;
-  if (lineCount <= 4) fontSize = '28px';
-  else if (lineCount <= 6) fontSize = '24px';
-  else fontSize = '20px';
+  if (lineCount <= 4) fontSize = '36px';
+  else if (lineCount <= 6) fontSize = '30px';
+  else fontSize = '26px';
 
   const detailBgUrl = getPoemBgImage(poem.id);
+  const anno = getAnnotation(poem.id);
 
   modal.innerHTML = `
     <div class="detail-header">
@@ -257,7 +348,18 @@ function renderDetailContent(modal, poem) {
           <path d="m6 9 6 6 6-6"/>
         </svg>
       </button>
-      <div class="detail-counter">第 ${index + 1} 首 / 共 ${filtered.length} 首</div>
+      <div class="detail-toolbar">
+        <button class="tool-btn ${state.showPinyin ? 'active' : ''}" id="togglePinyin" title="拼音">
+          <span style="font-size:12px;font-weight:700;">拼</span>
+        </button>
+        <button class="tool-btn ${state.showTranslation ? 'active' : ''}" id="toggleTranslation" title="译文">
+          <span style="font-size:12px;font-weight:700;">译</span>
+        </button>
+        <button class="tool-btn ${state.reciteMode ? 'active' : ''}" id="toggleRecite" title="背诵">
+          <span style="font-size:12px;font-weight:700;">背</span>
+        </button>
+        <div class="detail-counter">第 ${index + 1} 首 / 共 ${filtered.length} 首</div>
+      </div>
       <button class="btn-play ${isPlaying ? 'playing' : ''}" id="detailPlay">
         ${isPlaying ? `
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -289,13 +391,36 @@ function renderDetailContent(modal, poem) {
         <div class="divider-line"></div>
       </div>
 
-      <div class="detail-content">
-        ${poem.content.map((line, i) => `
-          <p class="detail-line ${state.speakingLineIndex === i ? 'speaking' : ''}"
+      <div class="detail-content ${state.showPinyin && !state.reciteMode ? 'with-pinyin' : ''}">
+        ${poem.content.map((line, i) => {
+          const isHidden = state.reciteMode && !state.revealedLines.has(i);
+          let lineHtml;
+          if (isHidden) {
+            // 用横线替代每个字
+            lineHtml = [...line].map(ch => /[\u4e00-\u9fff]/.test(ch) ? '<span class="blank-char">　</span>' : ch).join('');
+          } else {
+            lineHtml = (state.showPinyin && anno) ? rubyLine(line, anno.pinyin[i]) : line;
+          }
+          return `
+          <p class="detail-line ${state.speakingLineIndex === i ? 'speaking' : ''} ${isHidden ? 'recite-hidden' : ''} ${state.reciteMode && state.revealedLines.has(i) ? 'recite-revealed' : ''}"
              style="font-size: ${fontSize}"
-             data-line-index="${i}">${line}</p>
-        `).join('')}
+             data-line-index="${i}">${lineHtml}</p>
+        `;
+        }).join('')}
       </div>
+
+      ${state.reciteMode ? `
+        <div class="recite-hint">
+          ${state.revealedLines.size < poem.content.length ? '点击横线可揭示对应诗句' : '🎉 太棒了，全部背出来了！'}
+        </div>
+      ` : ''}
+
+      ${state.showTranslation && anno ? `
+        <div class="detail-translation">
+          <div class="translation-label">译文</div>
+          <p class="translation-text">${anno.translation}</p>
+        </div>
+      ` : ''}
 
       <button class="detail-nav-btn next ${hasNext ? '' : 'invisible'}" id="detailNext">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -313,6 +438,25 @@ function renderDetailContent(modal, poem) {
 
   // 绑定事件
   modal.querySelector('#detailClose').addEventListener('click', closeDetail);
+
+  // 拼音/译文/背诵切换
+  modal.querySelector('#togglePinyin').addEventListener('click', () => {
+    state.showPinyin = !state.showPinyin;
+    renderDetailContent(modal, poem);
+  });
+  modal.querySelector('#toggleTranslation').addEventListener('click', () => {
+    state.showTranslation = !state.showTranslation;
+    renderDetailContent(modal, poem);
+  });
+  modal.querySelector('#toggleRecite').addEventListener('click', () => {
+    state.reciteMode = !state.reciteMode;
+    state.revealedLines = new Set();
+    if (state.reciteMode) {
+      state.showPinyin = false;
+      state.showTranslation = false;
+    }
+    renderDetailContent(modal, poem);
+  });
 
   modal.querySelector('#detailPlay').addEventListener('click', () => {
     const amSt = audioManager.getState();
@@ -343,10 +487,17 @@ function renderDetailContent(modal, poem) {
   titleEl.addEventListener('click', speakTitle);
   metaEl.addEventListener('click', speakTitle);
 
-  // 逐句点读
+  // 逐句点读 / 背诵揭示
   modal.querySelectorAll('.detail-line').forEach(el => {
     el.addEventListener('click', () => {
       const idx = parseInt(el.dataset.lineIndex);
+      // 背诵模式：点击揭示
+      if (state.reciteMode && !state.revealedLines.has(idx)) {
+        state.revealedLines.add(idx);
+        renderDetailContent(modal, poem);
+        return;
+      }
+      // 普通模式：点读
       stopSpeaking();
       audioManager.stop();
       state.speakingLineIndex = idx;
