@@ -3,20 +3,23 @@
  * 根据每首诗的意境/主题，映射到对应的水墨画背景图
  */
 
-// 12 张主题水墨画背景图
+// 使用 Vite 的 BASE_URL 确保路径在不同部署环境下都正确
+const BASE = import.meta.env.BASE_URL || '/';
+
+// 12 张主题水墨画背景图（路径基于 public 目录）
 const BG_IMAGES = {
-  spring: '/bg/spring.png',      // 春景：桃花柳树、春风
-  summer: '/bg/summer.png',      // 夏景：荷花池塘
-  autumn: '/bg/autumn.png',      // 秋景：枫叶、秋风
-  winter: '/bg/winter.png',      // 冬景：雪景、寒江
-  mountains: '/bg/mountains.png', // 山水：高山瀑布、江河
-  pastoral: '/bg/pastoral.png',  // 田园：农村、田野
-  moonlight: '/bg/moonlight.png', // 月夜：明月、夜空
-  farewell: '/bg/farewell.png',  // 送别：离别、舟行
-  frontier: '/bg/frontier.png',  // 边塞：大漠、关城
-  birds: '/bg/birds.png',        // 花鸟：花开鸟鸣
-  grassland: '/bg/grassland.png', // 草原：野草、牧童
-  study: '/bg/study.png',        // 书房：笔墨纸砚
+  spring: `${BASE}bg/spring.png`,      // 春景：桃花柳树、春风
+  summer: `${BASE}bg/summer.png`,      // 夏景：荷花池塘
+  autumn: `${BASE}bg/autumn.png`,      // 秋景：枫叶、秋风
+  winter: `${BASE}bg/winter.png`,      // 冬景：雪景、寒江
+  mountains: `${BASE}bg/mountains.png`, // 山水：高山瀑布、江河
+  pastoral: `${BASE}bg/pastoral.png`,  // 田园：农村、田野
+  moonlight: `${BASE}bg/moonlight.png`, // 月夜：明月、夜空
+  farewell: `${BASE}bg/farewell.png`,  // 送别：离别、舟行
+  frontier: `${BASE}bg/frontier.png`,  // 边塞：大漠、关城
+  birds: `${BASE}bg/birds.png`,        // 花鸟：花开鸟鸣
+  grassland: `${BASE}bg/grassland.png`, // 草原：野草、牧童
+  study: `${BASE}bg/study.png`,        // 书房：笔墨纸砚
 };
 
 /**
