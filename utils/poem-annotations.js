@@ -610,6 +610,302 @@ const annotations = {
     ],
     translation: '跋山涉水一路前行，将士们向山海关的方向进发。夜深了营帐中千盏灯还亮着。风雪交加整夜不停，嘈杂的声音打碎了思乡的梦，故乡没有这样的风雪之声啊。',
   },
+
+  // ===== 一年级（新增） =====
+  109: {
+    pinyin: [
+      'jiāng nán kě cǎi lián ，',
+      'lián yè hé tián tián 。',
+      'yú xì lián yè jiān ，',
+      'yú xì lián yè dōng ，',
+      'yú xì lián yè xī ，',
+      'yú xì lián yè nán ，',
+      'yú xì lián yè běi 。',
+    ],
+    translation: '江南水乡是采莲的好地方，莲叶多么茂盛啊。鱼儿在莲叶间嬉戏，一会儿游到东面，一会儿游到西面，一会儿游到南面，一会儿游到北面。',
+  },
+  110: {
+    pinyin: [
+      'chì lè chuān ， yīn shān xià 。',
+      'tiān sì qióng lú ， lǒng gài sì yě 。',
+      'tiān cāng cāng ， yě máng máng ，',
+      'fēng chuī cǎo dī xiàn niú yáng 。',
+    ],
+    translation: '辽阔的敕勒川在阴山脚下。天空像一顶巨大的帐篷，笼罩着整个原野。天空苍苍茫茫，原野辽阔无垠，风吹过草地低伏下去，就能看到成群的牛羊。',
+  },
+  111: {
+    pinyin: [
+      'chú hé rì dāng wǔ ，',
+      'hàn dī hé xià tǔ 。',
+      'shuí zhī pán zhōng cān ，',
+      'lì lì jiē xīn kǔ 。',
+    ],
+    translation: '农民在正午时分顶着烈日锄草，汗珠滴落在禾苗下面的泥土里。谁知道盘子里的饭食，每一粒都饱含着农民的辛苦。',
+  },
+
+  // ===== 二年级（新增） =====
+  209: {
+    pinyin: [
+      'qín shí míng yuè hàn shí guān ，',
+      'wàn lǐ cháng zhēng rén wèi huán 。',
+      'dàn shǐ lóng chéng fēi jiàng zài ，',
+      'bù jiào hú mǎ dù yīn shān 。',
+    ],
+    translation: '依旧是秦汉时的明月和边关，远征万里的将士们还没有回来。只要有像飞将军李广那样的名将在，就不会让敌人的战马越过阴山。',
+  },
+  210: {
+    pinyin: [
+      'hán yǔ lián jiāng yè rù wú ，',
+      'píng míng sòng kè chǔ shān gū 。',
+      'luò yáng qīn yǒu rú xiāng wèn ，',
+      'yī piàn bīng xīn zài yù hú 。',
+    ],
+    translation: '冷雨洒满江面的夜晚来到了吴地，天亮时送别好友只留下楚山孤影。如果洛阳的亲友问起我的近况，就说我的心像玉壶中的冰一样纯洁。',
+  },
+  211: {
+    pinyin: [
+      'kōng shān bù jiàn rén ，',
+      'dàn wén rén yǔ xiǎng 。',
+      'fǎn jǐng rù shēn lín ，',
+      'fù zhào qīng tái shàng 。',
+    ],
+    translation: '空旷的山中看不见人的身影，只能听到人说话的声音。一束夕阳照进幽深的树林里，又映照在绿色的青苔上。',
+  },
+  212: {
+    pinyin: [
+      'gù rén xī cí huáng hè lóu ，',
+      'yān huā sān yuè xià yáng zhōu 。',
+      'gū fān yuǎn yǐng bì kōng jìn ，',
+      'wéi jiàn cháng jiāng tiān jì liú 。',
+    ],
+    translation: '老朋友在黄鹤楼与我告别，在鲜花烂漫的三月去往扬州。孤零零的帆船渐渐远去消失在碧空尽头，只看见长江之水浩浩荡荡地向天边流去。',
+  },
+  213: {
+    pinyin: [
+      'péng tóu zhì zǐ xué chuí lún ，',
+      'cè zuò méi tái cǎo yìng shēn 。',
+      'lù rén jiè wèn yáo zhāo shǒu ，',
+      'pà dé yú jīng bù yìng rén 。',
+    ],
+    translation: '头发蓬乱的小孩正在学习垂钓，侧身坐在莓苔上被草丛遮住了身子。路过的人向他问路，他远远地摆手不回答，怕惊跑了鱼儿。',
+  },
+
+  // ===== 三年级（新增） =====
+  309: {
+    pinyin: [
+      'qiān lǐ huáng yún bái rì xūn ，',
+      'běi fēng chuī yàn xuě fēn fēn 。',
+      'mò chóu qián lù wú zhī jǐ ，',
+      'tiān xià shuí rén bù shí jūn 。',
+    ],
+    translation: '千里黄云遮蔽了天空，太阳也显得昏暗了，北风吹着大雁雪花纷飞。不要担心前方的路上没有知己朋友，天下谁人不认识你呢？',
+  },
+  310: {
+    pinyin: [
+      'hǎo yǔ zhī shí jié ，',
+      'dāng chūn nǎi fā shēng 。',
+      'suí fēng qián rù yè ，',
+      'rùn wù xì wú shēng 。',
+    ],
+    translation: '好雨知道下雨的时节，正是在春天植物萌发生长的时候。雨随着春风在夜里悄悄落下，无声地滋润着万物。',
+  },
+  311: {
+    pinyin: [
+      'huáng sì niáng jiā huā mǎn xī ，',
+      'qiān duǒ wàn duǒ yā zhī dī 。',
+      'liú lián xì dié shí shí wǔ ，',
+      'zì zài jiāo yīng qià qià tí 。',
+    ],
+    translation: '黄四娘家的小路旁开满了鲜花，千朵万朵花儿把枝条都压低了。留恋花间的蝴蝶不时地翩翩起舞，自由自在的黄莺恰恰欢快地鸣叫。',
+  },
+  312: {
+    pinyin: [
+      'tiān jiē xiǎo yǔ rùn rú sū ，',
+      'cǎo sè yáo kàn jìn què wú 。',
+      'zuì shì yī nián chūn hǎo chù ，',
+      'jué shèng yān liǔ mǎn huáng dū 。',
+    ],
+    translation: '皇城的大街上细雨如酥油般润泽，小草远远看去绿绿的，近看却几乎看不出来。这是一年中最美好的时节，远远胜过京城柳絮如烟的暮春。',
+  },
+  313: {
+    pinyin: [
+      'lín àn cǎo jīng fēng ，',
+      'jiāng jūn yè yǐn gōng 。',
+      'píng míng xún bái yǔ ，',
+      'mò zài shí léng zhōng 。',
+    ],
+    translation: '昏暗的树林中草突然被风吹动，将军在夜里拉弓射箭。第二天天亮去寻找白色的箭羽，发现箭已深深射入石棱中。',
+  },
+  314: {
+    pinyin: [
+      'jiǔ qǔ huáng hé wàn lǐ shā ，',
+      'làng táo fēng bǒ zì tiān yá 。',
+      'rú jīn zhí shàng yín hé qù ，',
+      'tóng dào qiān niú zhī nǚ jiā 。',
+    ],
+    translation: '九曲黄河从遥远的地方携带着万里黄沙奔腾而来，浪花淘洗着大风簸动来自天边。如今可以沿着黄河直上银河去，一同到牛郎织女的家里做客。',
+  },
+  315: {
+    pinyin: [
+      'qīng míng shí jié yǔ fēn fēn ，',
+      'lù shàng xíng rén yù duàn hún 。',
+      'jiè wèn jiǔ jiā hé chù yǒu ？',
+      'mù tóng yáo zhǐ xìng huā cūn 。',
+    ],
+    translation: '清明节这天下着细雨，路上行走的人好像失了魂魄一样伤感。请问哪里有酒家可以歇脚？牧童远远地指向杏花深处的村庄。',
+  },
+  316: {
+    pinyin: [
+      'pú táo měi jiǔ yè guāng bēi ，',
+      'yù yǐn pí pá mǎ shàng cuī 。',
+      'zuì wò shā chǎng jūn mò xiào ，',
+      'gǔ lái zhēng zhàn jǐ rén huí ？',
+    ],
+    translation: '用精美的夜光杯盛着葡萄美酒，正要畅饮时琵琶声又催人出发了。即使醉倒在沙场上你也不要笑话我，自古以来出征打仗有几人能活着回来？',
+  },
+  317: {
+    pinyin: [
+      'qīng qīng yuán zhōng kuí ，',
+      'zhāo lù dài rì xī 。',
+      'bǎi chuān dōng dào hǎi ，',
+      'hé shí fù xī guī ？',
+      'shào zhuàng bù nǔ lì ，',
+      'lǎo dà tú shāng bēi 。',
+    ],
+    translation: '园中的葵菜青青郁郁，清晨的露水等待着太阳出来就会蒸发。百川东流汇入大海，什么时候才能再向西流回来呢？年少时不努力学习，到老了只能空自悲伤。',
+  },
+
+  // ===== 四年级（新增） =====
+  411: {
+    pinyin: [
+      'qiān lǐ yīng tí lǜ yìng hóng ，',
+      'shuǐ cūn shān guō jiǔ qí fēng 。',
+      'nán cháo sì bǎi bā shí sì ，',
+      'duō shǎo lóu tái yān yǔ zhōng 。',
+    ],
+    translation: '千里江南到处莺歌燕舞绿树红花相映，水边的村庄山边的城郭处处酒旗飘扬。南朝留下的那许多座寺庙，多少楼台掩映在朦胧的烟雨之中。',
+  },
+  412: {
+    pinyin: [
+      'bù lùn píng dì yǔ shān jiān ，',
+      'wú xiàn fēng guāng jìn bèi zhàn 。',
+      'cǎi dé bǎi huā chéng mì hòu ，',
+      'wèi shuí xīn kǔ wèi shuí tián ？',
+    ],
+    translation: '不管是平地还是山尖，凡是花开的地方都被蜜蜂占据了。蜜蜂采尽百花酿成蜂蜜，到底是为谁辛苦为谁酿造甘甜呢？',
+  },
+  413: {
+    pinyin: [
+      'jiāng shàng wǎng lái rén ，',
+      'dàn ài lú yú měi 。',
+      'jūn kàn yī yè zhōu ，',
+      'chū mò fēng bō lǐ 。',
+    ],
+    translation: '江上来来往往的人们，只知道喜爱鲈鱼的味道鲜美。你看那一叶小小的渔船，在大风大浪中时隐时现多么惊险。',
+  },
+  414: {
+    pinyin: [
+      'bào zhú shēng zhōng yī suì chú ，',
+      'chūn fēng sòng nuǎn rù tú sū 。',
+      'qiān mén wàn hù tóng tóng rì ，',
+      'zǒng bǎ xīn táo huàn jiù fú 。',
+    ],
+    translation: '在噼噼啪啪的爆竹声中又送走了旧的一年，人们迎着和煦的春风畅饮着屠苏酒。千家万户沐浴在初升太阳的光辉中，总是用新桃符换下旧桃符。',
+  },
+  415: {
+    pinyin: [
+      'héng kàn chéng lǐng cè chéng fēng ，',
+      'yuǎn jìn gāo dī gè bù tóng 。',
+      'bù shí lú shān zhēn miàn mù ，',
+      'zhǐ yuán shēn zài cǐ shān zhōng 。',
+    ],
+    translation: '从正面看庐山是连绵的山岭，从侧面看庐山是高耸的山峰。远看近看高处低处各不一样。看不清庐山的真正面目，只因为自己身处在庐山之中。',
+  },
+  416: {
+    pinyin: [
+      'shēng dāng zuò rén jié ，',
+      'sǐ yì wéi guǐ xióng 。',
+      'zhì jīn sī xiàng yǔ ，',
+      'bù kěn guò jiāng dōng 。',
+    ],
+    translation: '活着就要做人中的豪杰，死了也要成为鬼中的英雄。到今天还在怀念项羽，因为他不肯苟且偷生回到江东。',
+  },
+
+  // ===== 五年级（新增） =====
+  507: {
+    pinyin: [
+      'shèng rì xún fāng sì shuǐ bīn ，',
+      'wú biān guāng jǐng yī shí xīn 。',
+      'děng xián shí dé dōng fēng miàn ，',
+      'wàn zǐ qiān hóng zǒng shì chūn 。',
+    ],
+    translation: '风和日丽的时候来到泗水边踏青赏春，无边无际的风光焕然一新。谁都可以轻易地认出春天的面貌，到处都是万紫千红百花齐放的春景。',
+  },
+  508: {
+    pinyin: [
+      'bàn mǔ fāng táng yī jiàn kāi ，',
+      'tiān guāng yún yǐng gòng pái huái 。',
+      'wèn qú nà dé qīng rú xǔ ？',
+      'wéi yǒu yuán tóu huó shuǐ lái 。',
+    ],
+    translation: '半亩大的方形池塘像一面镜子一样打开，天光和云影一起在水中闪耀浮动。要问那方塘的水为什么这样清澈？是因为有那永不枯竭的源头为它源源不断地输送活水。',
+  },
+  509: {
+    pinyin: [
+      'bì jìng xī hú liù yuè zhōng ，',
+      'fēng guāng bù yǔ sì shí tóng 。',
+      'jiē tiān lián yè wú qióng bì ，',
+      'yìng rì hé huā bié yàng hóng 。',
+    ],
+    translation: '到底是西湖六月天的景色，风光与其他季节确实不同。碧绿的莲叶无边无际一直延伸到天际，在阳光映照下荷花显得格外艳红。',
+  },
+  510: {
+    pinyin: [
+      'yīng lián jī chǐ yìn cāng tái ，',
+      'xiǎo kòu chái fēi jiǔ bù kāi 。',
+      'chūn sè mǎn yuán guān bù zhù ，',
+      'yī zhī hóng xìng chū qiáng lái 。',
+    ],
+    translation: '大概是主人爱惜苍苔怕留下我的木屐印迹，轻轻地敲柴门很久也没有人来开。可是满园的春色怎么也关不住，一枝红色的杏花已经探出墙头来了。',
+  },
+  511: {
+    pinyin: [
+      'shān wài qīng shān lóu wài lóu ，',
+      'xī hú gē wǔ jǐ shí xiū ？',
+      'nuǎn fēng xūn dé yóu rén zuì ，',
+      'zhí bǎ háng zhōu zuò biàn zhōu 。',
+    ],
+    translation: '青山之外还是青山，楼阁之外又是楼阁。西湖边的歌舞什么时候才能停下来？暖洋洋的春风把游人吹得醉醺醺的，简直把杭州当成了汴州。',
+  },
+
+  // ===== 六年级 =====
+  601: {
+    pinyin: [
+      'qiān chuí wàn záo chū shēn shān ，',
+      'liè huǒ fén shāo ruò děng xián 。',
+      'fěn gǔ suì shēn hún bù pà ，',
+      'yào liú qīng bái zài rén jiān 。',
+    ],
+    translation: '石灰石经过千万次锤打才从深山中开采出来，经受烈火焚烧也觉得很平常。即使被粉碎变成粉末也毫不害怕，只要能把清白留在人世间。',
+  },
+  602: {
+    pinyin: [
+      'yǎo dìng qīng shān bù fàng sōng ，',
+      'lì gēn yuán zài pò yán zhōng 。',
+      'qiān mó wàn jī hái jiān jìng ，',
+      'rèn ěr dōng xī nán běi fēng 。',
+    ],
+    translation: '竹子把根深深地扎进青山的岩石中紧紧咬住不放松，它的根原来就生长在破碎的岩石缝中。经历了千万次的磨炼和打击还是那样坚韧挺拔，不管你从哪个方向刮来的风。',
+  },
+  603: {
+    pinyin: [
+      'qiáng jiǎo shù zhī méi ，',
+      'líng hán dú zì kāi 。',
+      'yáo zhī bù shì xuě ，',
+      'wéi yǒu àn xiāng lái 。',
+    ],
+    translation: '墙角有几枝梅花，不畏严寒独自盛开。远远望去就知道那不是雪，因为有一阵阵暗香飘来。',
+  },
 };
 
 /**
