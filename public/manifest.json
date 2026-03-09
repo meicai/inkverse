@@ -1,0 +1,16 @@
+{
+  "name": "墨韵诗林",
+  "short_name": "墨韵诗林",
+  "description": "少儿古诗背诵与学习助手",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#A67C52",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

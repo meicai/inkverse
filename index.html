@@ -13,8 +13,10 @@
     />
     <meta name="theme-color" content="#f5f0e6" />
 
-    <!-- 页签图标 -->
+    <!-- 页签图标及 PWA 配置 -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- 字体：霞鹜文楷 + 马山正 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -114,5 +116,14 @@
     </div>
 
     <script type="module" src="/main.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.warn('ServiceWorker 注册失败: ', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

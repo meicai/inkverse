@@ -40,19 +40,31 @@ export function createAudioManager() {
   }
 
   // 播放指定诗词
-  function playPoem(poem, playlist, index) {
+  function playPoem(poem, playlist, index, options = {}) {
     stop();
     state.currentPoem = poem;
-    state.playlist = playlist || state.playlist;
+    state.playlist = playlist || state.playlist || [];
     state.currentIndex = index >= 0 ? index : state.currentIndex;
     state.isPlaying = true;
     notify();
 
     speakPoem(poem, {
       speed: state.speed,
+      onBoundary: (charIndex) => {
+        if (options.onBoundary) {
+          options.onBoundary(charIndex);
+        }
+      },
       onEnd: () => {
         // 朗读结束后，根据播放模式决定下一首
         if (!state.isPlaying) return;
+        
+        // 如果是从古诗详情页点进来的 (playlist 为空或强制阻断)，则播完单曲就不再继续列表
+        if (!state.playlist || state.playlist.length === 0) {
+           stop();
+           return;
+        }
+
         pauseTimer = setTimeout(() => {
           if (!state.isPlaying) return;
           playNextAuto();
