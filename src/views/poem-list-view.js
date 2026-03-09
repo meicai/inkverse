@@ -286,8 +286,11 @@ function openThemeOverlay(themeId) {
   // 如果已经有专题浮层存在，直接返回，避免多次点击叠加渲染
   if (document.querySelector('.theme-overlay')) return;
 
-  // 根据 theme.poemIds 筛选得到具体的诗歌列表
-  const themePoems = allPoems.filter(p => theme.poemIds.includes(p.id));
+  // 根据 theme.tags 动态筛选得到关联的诗歌列表 (只要命中其中一个 tag 即可)
+  const themePoems = allPoems.filter(p => {
+    if (!p.tags || !theme.tags) return false;
+    return p.tags.some(tag => theme.tags.includes(tag));
+  });
 
   const overlay = document.createElement('div');
   overlay.className = 'theme-overlay';

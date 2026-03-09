@@ -56,25 +56,29 @@ export const THEMES = [
     id: 'theme_spring',
     title: '春意盎然',
     desc: '正是江南好风景，落花时节又逢君。',
-    cover: 'spring', // 用于背景配图匹配
-    tags: ['春'],    // 关联的标签
-    poemIds: [1, 2, 17, 30] // 这里随意配置一些关联数字 ID，如咏鹅、春晓等
+    cover: 'spring', 
+    tags: ['春景']
   },
   {
     id: 'theme_moon',
-    title: '月下独酌',
+    title: '明月清辉',
     desc: '举杯邀明月，对影成三人。',
     cover: 'moon',
-    tags: ['月', '思乡'],
-    poemIds: [10, 20, 31, 45, 80] // 静夜思、古朗月行等
+    tags: ['月', '秋思']
   },
   {
     id: 'theme_frontier',
     title: '大漠孤烟',
     desc: '黄沙百战穿金甲，不破楼兰终不还。',
     cover: 'frontier',
-    tags: ['边塞', '战争'],
-    poemIds: [25, 41, 55, 60] // 凉州词, 出塞, 芙蓉楼等
+    tags: ['边塞', '爱国']
+  },
+  {
+    id: 'theme_pastoral',
+    title: '田园风光',
+    desc: '采菊东篱下，悠然见南山。',
+    cover: 'village',
+    tags: ['田园', '自然', '隐逸']
   }
 ];
 
